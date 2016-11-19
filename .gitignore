@@ -1,0 +1,7 @@
+.git
+.idea
+vendor
+bin
+composer.lock
+composer.phar
+docker-compose.yml

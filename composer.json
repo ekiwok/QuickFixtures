@@ -1,0 +1,17 @@
+{
+  "name": "ekiwok/quick-fixtures",
+  "license": "MIT",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "": "src/",
+      "spec\\" : "spec/"
+    }
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^3.0"
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}
