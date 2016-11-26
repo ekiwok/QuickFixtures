@@ -2,6 +2,13 @@
 
 namespace Ekiwok\QuickFixtures;
 
-class Generator
+class Generator implements GeneratorInterface
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function generate($class, $payload = null)
+    {
+        return new \stdClass();
+    }
 }
