@@ -1,6 +1,6 @@
 <?php
 
-namespace Ekiwok\QuickFixtures\Processor;
+namespace Ekiwok\QuickFixtures\Processor\Exception;
 
 class UnsupportedPayloadException extends \Exception
 {

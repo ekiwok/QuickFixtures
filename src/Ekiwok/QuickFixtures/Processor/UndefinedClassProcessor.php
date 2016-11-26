@@ -4,6 +4,7 @@ namespace Ekiwok\QuickFixtures\Processor;
 
 use Ekiwok\QuickFixtures\ContextInterface;
 use Ekiwok\QuickFixtures\GeneratorInterface;
+use Ekiwok\QuickFixtures\Processor\Exception\UnsupportedPayloadException;
 
 /**
  * This processor handles any class (this is why it's UndefinedClassProcessor in contrary to fe. DateTimeProcessor).
@@ -23,7 +24,27 @@ class UndefinedClassProcessor implements PrioritisedProcessorInterface
      */
     public function process(ContextInterface $context, $payload, GeneratorInterface $generator)
     {
-        // TODO: Implement process() method.
+        $classes = $context->getType()->getClasses();
+
+        if (count($classes) > 1) {
+            // do smth clever
+        }
+        $class = reset($classes);
+
+        switch (gettype($payload))
+        {
+            case 'object':
+                return $payload;
+
+            case 'array':
+            case 'NULL':
+                $reflection = new \ReflectionClass($class);
+
+                return $reflection->newInstanceWithoutConstructor();
+
+            default:
+                throw UnsupportedPayloadException::create(self::class, gettype($payload));
+        }
     }
 
     /**
@@ -51,4 +72,10 @@ class UndefinedClassProcessor implements PrioritisedProcessorInterface
                 return false;
         }
     }
+
+    private function runRecursively(ContextInterface $context, array $payload, GeneratorInterface $generator)
+    {
+
+    }
+
 }

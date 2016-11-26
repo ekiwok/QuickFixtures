@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Ekiwok\QuickFixtures\Processor;
+namespace spec\Ekiwok\QuickFixtures\Processor\Exception;
 
-use Ekiwok\QuickFixtures\Processor\UnsupportedPayloadException;
+use Ekiwok\QuickFixtures\Processor\Exception\UnsupportedPayloadException;
 use PhpSpec\ObjectBehavior;
 
 class UnsupportedPayloadExceptionSpec extends ObjectBehavior
