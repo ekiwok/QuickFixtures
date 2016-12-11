@@ -20,4 +20,12 @@ class TypeSpec extends ObjectBehavior
         $this->hasAnyClass()->shouldBe(true);
         $this->getClasses()->shouldBe(['\\DateTime']);
     }
+
+    function it_should_have_a_scalar()
+    {
+        $this->beConstructedWith(['\\DateTime'], ['int']);
+
+        $this->hasAnyClass()->shouldBe(true);
+        $this->getClasses()->shouldBe(['\\DateTime']);
+    }
 }

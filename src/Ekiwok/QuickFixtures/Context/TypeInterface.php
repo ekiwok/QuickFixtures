@@ -10,7 +10,17 @@ interface TypeInterface
     public function hasAnyClass();
 
     /**
-     * @return array
+     * @return bool
+     */
+    public function hasAnyScalar();
+
+    /**
+     * @return string[]
      */
     public function getClasses();
+
+    /**
+     * @return string[]
+     */
+    public function getScalars();
 }

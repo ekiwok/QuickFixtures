@@ -5,16 +5,23 @@ namespace Ekiwok\QuickFixtures\Context;
 class Type implements TypeInterface
 {
     /**
-     * @var array
+     * @var string[]
      */
     private $classes;
 
     /**
-     * @param array $classes
+     * @var string[]
      */
-    public function __construct(array $classes = [])
+    private $scalars;
+
+    /**
+     * @param string[] $classes
+     * @param string[] $scalars
+     */
+    public function __construct(array $classes = [], array $scalars = [])
     {
         $this->classes = $classes;
+        $this->scalars = $scalars;
     }
 
     /**
@@ -31,5 +38,21 @@ class Type implements TypeInterface
     public function getClasses()
     {
         return $this->classes;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasAnyScalar()
+    {
+        return !empty($this->scalars);
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getScalars()
+    {
+        return $this->scalars;
     }
 }

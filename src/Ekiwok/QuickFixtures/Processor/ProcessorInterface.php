@@ -4,6 +4,7 @@ namespace Ekiwok\QuickFixtures\Processor;
 
 use Ekiwok\QuickFixtures\ContextInterface;
 use Ekiwok\QuickFixtures\GeneratorInterface;
+use Ekiwok\QuickFixtures\Processor\Exception\UnsupportedPayloadException;
 
 interface ProcessorInterface
 {
@@ -13,6 +14,8 @@ interface ProcessorInterface
      * @param GeneratorInterface $generator
      *
      * @return mixed
+     *
+     * @throws UnsupportedPayloadException
      */
     public function process(ContextInterface $context, $payload, GeneratorInterface $generator);
 

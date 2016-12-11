@@ -75,7 +75,7 @@ class UndefinedClassProcessor implements PrioritisedProcessorInterface
 
     private function runRecursively(ContextInterface $context, array $payload, GeneratorInterface $generator)
     {
-
+        
     }
 
 }
