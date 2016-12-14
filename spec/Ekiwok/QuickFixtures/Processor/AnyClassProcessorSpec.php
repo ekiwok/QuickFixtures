@@ -6,14 +6,14 @@ use Ekiwok\QuickFixtures\Context\Type;
 use Ekiwok\QuickFixtures\ContextInterface;
 use Ekiwok\QuickFixtures\GeneratorInterface;
 use PhpSpec\ObjectBehavior;
-use Ekiwok\QuickFixtures\Processor\UndefinedClassProcessor;
+use Ekiwok\QuickFixtures\Processor\AnyClassProcessor;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Foo;
 
-class UndefinedClassProcessorSpec extends ObjectBehavior
+class AnyClassProcessorSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(UndefinedClassProcessor::class);
+        $this->shouldHaveType(AnyClassProcessor::class);
     }
 
     function it_applies_to_Foo(ContextInterface $context)

@@ -9,7 +9,7 @@ use Ekiwok\QuickFixtures\Processor\Exception\UnsupportedPayloadException;
 /**
  * This processor handles any class (this is why it's UndefinedClassProcessor in contrary to fe. DateTimeProcessor).
  */
-class UndefinedClassProcessor implements PrioritisedProcessorInterface
+class AnyClassProcessor implements PrioritisedProcessorInterface
 {
     /**
      * {@inheritdoc}
