@@ -39,8 +39,12 @@ class ClassDetailsFactorySpec extends ObjectBehavior
         $details = $this->create(Bar::class);
 
         $details->getName()->shouldBe(Bar::class);
-        $details->getProperties()->shouldBe([
-            new PropertyDetails(Bar::class, new Type([], ['string']), new \ReflectionProperty(Bar::class, 'bar'))
-        ]);
+
+        $properties = $details->getProperties();
+
+        $barProperty = $properties[0];
+        $barProperty->getName()->shouldBe('bar');
+        $barProperty->getType()->getScalars()->shouldBe(['string']);
+        $barProperty->getReflectionProperty()->shouldHaveType(\ReflectionProperty::class);
     }
 }
