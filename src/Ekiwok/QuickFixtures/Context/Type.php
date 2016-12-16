@@ -15,13 +15,20 @@ class Type implements TypeInterface
     private $scalars;
 
     /**
+     * @var Type[]
+     */
+    private $typedArrays;
+
+    /**
      * @param string[] $classes
      * @param string[] $scalars
+     * @param Type[] $typedArrays
      */
-    public function __construct(array $classes = [], array $scalars = [])
+    public function __construct(array $classes = [], array $scalars = [], array $typedArrays = [])
     {
         $this->classes = $classes;
         $this->scalars = $scalars;
+        $this->typedArrays = $typedArrays;
     }
 
     /**
@@ -41,6 +48,14 @@ class Type implements TypeInterface
     }
 
     /**
+     * @return Type[]
+     */
+    public function getTypedArrays()
+    {
+        return $this->typedArrays;
+    }
+
+    /**
      * @return bool
      */
     public function hasAnyScalar()
@@ -54,5 +69,13 @@ class Type implements TypeInterface
     public function getScalars()
     {
         return $this->scalars;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasAnyTypedArray()
+    {
+        return !empty($this->typedArrays);
     }
 }
