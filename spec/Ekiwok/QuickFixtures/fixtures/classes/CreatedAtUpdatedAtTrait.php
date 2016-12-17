@@ -4,6 +4,5 @@ namespace spec\Ekiwok\QuickFixtures\fixtures\classes;
 
 trait CreatedUpdatedAtTrait
 {
-    use CreatedAtTrait;
-    use UpdatedAtTrait;
+    use CreatedAtTrait, UpdatedAtTrait;
 }

@@ -39,4 +39,9 @@ class ClassDetailsFactory
 
         return new ClassDetails($className, $properties);
     }
+
+    private function getClassImports()
+    {
+
+    }
 }

@@ -10,6 +10,7 @@ use Ekiwok\QuickFixtures\Model\PropertyDetails;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Bar;
+use spec\Ekiwok\QuickFixtures\fixtures\classes\Bizz;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Foo;
 
 class ClassDetailsFactorySpec extends ObjectBehavior
@@ -33,7 +34,7 @@ class ClassDetailsFactorySpec extends ObjectBehavior
         $details->getProperties()->shouldBe([]);
     }
 
-    function it_correctly_returns_bar_details_with_its_bar_string_property()
+    function it_correctly_returns_details_of_simple_class_with_one_string_property()
     {
         /** @var ClassDetails $details */
         $details = $this->create(Bar::class);
@@ -46,5 +47,16 @@ class ClassDetailsFactorySpec extends ObjectBehavior
         $barProperty->getName()->shouldBe('bar');
         $barProperty->getType()->getScalars()->shouldBe(['string']);
         $barProperty->getReflectionProperty()->shouldHaveType(\ReflectionProperty::class);
+    }
+
+    function it_correctly_returns_details_of_complex_class_with_traits()
+    {
+        /** @var ClassDetails $details */
+        $details = $this->create(Bizz::class);
+
+        $details->getName()->shouldBe(Bizz::class);
+
+        $properties = $details->getProperties();
+        $properties->shouldBeArray();
     }
 }
