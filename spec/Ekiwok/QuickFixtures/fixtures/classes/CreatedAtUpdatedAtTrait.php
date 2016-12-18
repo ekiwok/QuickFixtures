@@ -2,7 +2,7 @@
 
 namespace spec\Ekiwok\QuickFixtures\fixtures\classes;
 
-trait CreatedUpdatedAtTrait
+trait CreatedAtUpdatedAtTrait
 {
     use CreatedAtTrait, UpdatedAtTrait;
 }

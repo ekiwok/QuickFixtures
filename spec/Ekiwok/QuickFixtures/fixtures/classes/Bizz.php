@@ -6,7 +6,7 @@ use spec\Ekiwok\QuickFixtures\fixtures\classes\Baz\Nested;
 
 class Bizz extends Bar
 {
-    use CreatedUpdatedAtTrait;
+    use CreatedAtUpdatedAtTrait;
 
     /**
      * @var Nested

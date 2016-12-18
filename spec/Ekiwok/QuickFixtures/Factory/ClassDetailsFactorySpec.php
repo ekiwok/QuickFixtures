@@ -10,6 +10,7 @@ use Ekiwok\QuickFixtures\Model\PropertyDetails;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Bar;
+use spec\Ekiwok\QuickFixtures\fixtures\classes\Baz\Nested;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Bizz;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Foo;
 
@@ -43,13 +44,13 @@ class ClassDetailsFactorySpec extends ObjectBehavior
 
         $properties = $details->getProperties();
 
-        $barProperty = $properties[0];
+        $barProperty = $properties['bar'];
         $barProperty->getName()->shouldBe('bar');
         $barProperty->getType()->getScalars()->shouldBe(['string']);
         $barProperty->getReflectionProperty()->shouldHaveType(\ReflectionProperty::class);
     }
 
-    function it_correctly_returns_details_of_complex_class_with_traits()
+    function it_correctly_returns_details_of_complex_class_with_inheritance_and_traits()
     {
         /** @var ClassDetails $details */
         $details = $this->create(Bizz::class);
@@ -58,5 +59,16 @@ class ClassDetailsFactorySpec extends ObjectBehavior
 
         $properties = $details->getProperties();
         $properties->shouldBeArray();
+        $properties->shouldHaveCount(4);
+
+        $properties['createdAt']->shouldHaveType(PropertyDetails::class);
+        $properties['updatedAt']->shouldHaveType(PropertyDetails::class);
+        $properties['bar']->shouldHaveType(PropertyDetails::class);
+
+        $nested = $properties['nested'];
+        $nested->shouldHaveType(PropertyDetails::class);
+
+        $nestedType = $nested->getType();
+        $nestedType->getClasses()->shouldBe(['\\' . Nested::class]);
     }
 }
