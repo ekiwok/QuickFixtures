@@ -2,10 +2,10 @@
 
 namespace Ekiwok\QuickFixtures\Factory;
 
+use Ekiwok\QuickFixtures\Factory\ClassDetailsFactory\UseStatementsProviderInterface;
 use Ekiwok\QuickFixtures\Model\ClassDetails;
 use Ekiwok\QuickFixtures\Model\OverriddenPropertyDetails;
 use Ekiwok\QuickFixtures\Model\PropertyDetails;
-use Ekiwok\QuickFixtures\Model\UseStatementsProviderInterface;
 
 class ClassDetailsFactory
 {
