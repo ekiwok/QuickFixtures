@@ -42,7 +42,10 @@ class ClassDetailsFactory
         $reflectionProperties = $this->getProperties($reflection);
 
         foreach ($reflectionProperties as $reflectionProperty) {
-            $type = $this->typeFactory->create($reflectionProperty, []);
+            $useStatements = $this->useStatementsProvider
+                ->getUseStatements($reflectionProperty->getDeclaringClass());
+
+            $type = $this->typeFactory->create($reflectionProperty, $useStatements);
             $propertyDetails = new PropertyDetails($reflectionProperty->name, $type, $reflectionProperty);
 
             if (array_key_exists($reflectionProperty->name, $properties)) {

@@ -18,7 +18,7 @@ class ClassDetailsFactorySpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith(new TypeFactory());
+        $this->beConstructedWith(new TypeFactory(), new ClassDetailsFactory\UseStatementsProvider());
     }
 
     function it_is_initializable()
