@@ -66,7 +66,7 @@ class UseStatementsProvider implements UseStatementsProviderInterface
                             $aliases[] = $current[1];
                         }
                     }
-                break;
+                break 2;
             }
         }
 
