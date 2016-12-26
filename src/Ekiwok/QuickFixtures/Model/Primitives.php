@@ -46,7 +46,7 @@ final class Primitives
         self::BOOLEAN_SHORT     => self::BOOLEAN,
         self::CALLABLE_         => self::CALLABLE_,
         self::DOUBLE            => self::DOUBLE,
-        self::FLOAT             => self::FLOAT,
+        self::FLOAT             => self::DOUBLE,
         self::INTEGER           => self::INTEGER,
         self::INTEGER_SHORT     => self::INTEGER,
         self::NULL              => self::NULL,

@@ -30,4 +30,9 @@ interface TypeInterface
      * @return string[]
      */
     public function getScalars();
+
+    /**
+     * @return Type[]
+     */
+    public function getTypedArrays();
 }

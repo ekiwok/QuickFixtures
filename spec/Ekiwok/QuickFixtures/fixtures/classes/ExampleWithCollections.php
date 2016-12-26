@@ -10,7 +10,7 @@ class ExampleWithCollections
     private $bizzes = [];
 
     /**
-     * @var int[]
+     * @var float[]
      */
     private $numbers = [];
 

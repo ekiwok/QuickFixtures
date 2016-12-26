@@ -66,6 +66,14 @@ class ScalarProcessorSpec extends ObjectBehavior
         $this->applies($context, '3.14')->shouldBe(true);
     }
 
+    function it_should_apply_to_double_when_payload_is_integer(ContextInterface $context)
+    {
+        $type = new Type([], ['double']);
+        $context->getType()->willReturn($type);
+
+        $this->applies($context, 3)->shouldBe(true);
+    }
+
     function it_should_apply_to_boolean(ContextInterface $context)
     {
         $type = new Type([], ['boolean']);
@@ -172,6 +180,17 @@ class ScalarProcessorSpec extends ObjectBehavior
         $type = new Type([], ['string', 'boolean', 'double']);
         $context->getType()->willReturn($type);
 
+        $this->process($context, 3, $generator)->shouldBe(3.0);
+    }
+
+    function it_should_process_integer_as_double_when_double_expected(
+        ContextInterface $context,
+        GeneratorInterface $generator
+    ) {
+        $type = new Type([], ['double']);
+        $context->getType()->willReturn($type);
+
+        $result = $this->process($context, 3, $generator);
         $this->process($context, 3, $generator)->shouldBe(3.0);
     }
 

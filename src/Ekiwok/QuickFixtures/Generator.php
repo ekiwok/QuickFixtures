@@ -50,7 +50,7 @@ class Generator implements GeneratorInterface
 
         $this->processors[$priority][] = $processor;
 
-        krsort($this->processors);
+        ksort($this->processors);
     }
 
     /**

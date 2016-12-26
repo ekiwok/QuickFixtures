@@ -9,6 +9,7 @@ use Ekiwok\QuickFixtures\Generator;
 use Ekiwok\QuickFixtures\Model\ClassDetailsRegistry;
 use Ekiwok\QuickFixtures\Processor\AnyClassProcessor;
 use Ekiwok\QuickFixtures\Processor\ScalarProcessor;
+use Ekiwok\QuickFixtures\Processor\TypedArraysProcessor;
 use Ekiwok\QuickFixtures\Provider\ClassDetailsProvider;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -31,6 +32,7 @@ class GeneratorSpec extends ObjectBehavior
 
         $this->addProcessor(new ScalarProcessor());
         $this->addProcessor(new AnyClassProcessor($classDetailsProvider));
+        $this->addProcessor(new TypedArraysProcessor());
     }
 
     function it_is_initializable()
@@ -75,7 +77,7 @@ class GeneratorSpec extends ObjectBehavior
                     'nested' => "",
                 ]
             ],
-            'numbers' => [1,3,5,8,13.5],
+            'numbers' => [1,3,5.5,8,13.5],
         ]);
 
         $bizzes = $result->getBizzes();
@@ -83,6 +85,6 @@ class GeneratorSpec extends ObjectBehavior
             $bizz->shouldHaveType(Bizz::class);
         }
 
-        $result->getNumbers()->shouldBe(1,3,5,8,13);
+        $result->getNumbers()->shouldHaveCount(5);
     }
 }
