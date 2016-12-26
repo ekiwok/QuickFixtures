@@ -69,6 +69,12 @@ class AnyClassProcessor implements PrioritisedProcessorInterface
             case 'NULL':
                 return (new \ReflectionClass($classDetails->getName()))->newInstanceWithoutConstructor();
 
+            case 'string':
+                if (empty($payload)) {
+                    return (new \ReflectionClass($classDetails->getName()))->newInstanceWithoutConstructor();
+                }
+                // no break
+
             default:
                 throw UnsupportedPayloadException::create(self::class, gettype($payload));
         }
@@ -91,6 +97,9 @@ class AnyClassProcessor implements PrioritisedProcessorInterface
             case 'array':
             case 'NULL':
                 return true;
+
+            case 'string':
+                return empty($payload);
 
             case 'object':
                 return in_array(get_class($payload), $context->getType()->getClasses());

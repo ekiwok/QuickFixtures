@@ -2,6 +2,8 @@
 
 namespace Ekiwok\QuickFixtures;
 
+use Ekiwok\QuickFixtures\Processor\Exception\UnsupportedPayloadException;
+
 interface GeneratorInterface
 {
     /**
@@ -16,6 +18,8 @@ interface GeneratorInterface
      *
      * @param string|ContextInterface $context
      * @param null|array|\Traversable $payload
+     *
+     * @throws UnsupportedPayloadException
      *
      * @return mixed
      */

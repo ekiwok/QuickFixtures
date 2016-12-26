@@ -19,6 +19,7 @@ class TypeSpec extends ObjectBehavior
 
         $this->hasAnyClass()->shouldBe(true);
         $this->getClasses()->shouldBe(['\\DateTime']);
+        $this->hasClass(\DateTime::class)->shouldBe(true);
     }
 
     function it_should_have_a_scalar()

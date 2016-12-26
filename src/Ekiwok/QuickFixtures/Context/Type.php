@@ -78,4 +78,16 @@ class Type implements TypeInterface
     {
         return !empty($this->typedArrays);
     }
+
+    /**
+     * @return boolean
+     */
+    public function hasClass($className)
+    {
+        if ($className[0] !== '\\') {
+            $className = '\\'.$className;
+        }
+
+        return in_array($className, $this->classes);
+    }
 }

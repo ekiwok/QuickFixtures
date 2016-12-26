@@ -3,6 +3,7 @@
 namespace spec\Ekiwok\QuickFixtures;
 
 use Ekiwok\QuickFixtures\Context;
+use Ekiwok\QuickFixtures\Context\PathInterface;
 use Ekiwok\QuickFixtures\Context\TypeInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;

@@ -6,9 +6,17 @@ use Ekiwok\QuickFixtures\ContextInterface;
 use Ekiwok\QuickFixtures\GeneratorInterface;
 use Ekiwok\QuickFixtures\Processor\Exception\UnsupportedPayloadException;
 
-class ScalarProcessor implements ProcessorInterface
+class ScalarProcessor implements PrioritisedProcessorInterface
 {
     const SUPPORTED_TYPES = ['integer', 'double', 'string', 'boolean'];
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPriority()
+    {
+        return -5;
+    }
 
     /**
      * @param ContextInterface $context
@@ -119,6 +127,7 @@ class ScalarProcessor implements ProcessorInterface
         throw $this->createUnsupportedExpectedScalars('string', $expectedScalars);
     }
 
+
     /**
      * @param $double
      * @param array $expectedScalars
@@ -135,7 +144,6 @@ class ScalarProcessor implements ProcessorInterface
 
         throw $this->createUnsupportedExpectedScalars('double', $expectedScalars);
     }
-
 
     /**
      * @param $scalarType

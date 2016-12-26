@@ -20,6 +20,13 @@ interface TypeInterface
     public function getClasses();
 
     /**
+     * @param string $className
+     *
+     * @return boolean
+     */
+    public function hasClass($className);
+
+    /**
      * @return string[]
      */
     public function getScalars();
