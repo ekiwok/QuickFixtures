@@ -16,6 +16,7 @@ use Prophecy\Argument;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Baz\Nested;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Bizz;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\ExampleWithCollections;
+use spec\Ekiwok\QuickFixtures\GeneratorSpec\AtCreatedAtPathProcessor;
 use spec\Ekiwok\QuickFixtures\GeneratorSpec\DateTimeProcessor;
 
 class GeneratorSpec extends ObjectBehavior
@@ -53,6 +54,24 @@ class GeneratorSpec extends ObjectBehavior
 
         $bizz->getBar()->shouldBe('test');
         $bizz->getCreatedAt()->shouldHaveType(\DateTime::class);
+        $bizz->getUpdatedAt()->shouldHaveType(\DateTime::class);
+        $bizz->getNested()->shouldHaveType(Nested::class);
+    }
+
+    function it_generates_uses_class_extending_abstract_path_processor_correctly()
+    {
+        $this->addProcessor(new DateTimeProcessor());
+        $this->addProcessor(new AtCreatedAtPathProcessor());
+
+        $bizz = $this->generate(Bizz::class, [
+            'bar' => 'test',
+            'createdAt' => '2004-02-12T15:19:21+00:00',
+            'updatedAt' => '2014-10-01T15:19:21+01:00',
+            'nested' => "",
+        ]);
+
+        $bizz->getBar()->shouldBe('test');
+        $bizz->getCreatedAt()->shouldHaveType(\stdClass::class);
         $bizz->getUpdatedAt()->shouldHaveType(\DateTime::class);
         $bizz->getNested()->shouldHaveType(Nested::class);
     }
