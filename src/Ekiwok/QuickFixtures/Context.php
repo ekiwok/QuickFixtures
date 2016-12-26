@@ -21,9 +21,9 @@ class Context implements ContextInterface
     /**
      * @param TypeInterface $type
      */
-    public function __construct(TypeInterface $type)
+    public function __construct(TypeInterface $type, PathInterface $path = null)
     {
-        $this->path = new Path();
+        $this->path = $path ?: new Path();
         $this->type = $type;
     }
 

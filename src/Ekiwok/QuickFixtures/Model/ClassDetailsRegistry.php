@@ -18,6 +18,16 @@ class ClassDetailsRegistry
     }
 
     /**
+     * @param $className
+     *
+     * @return bool
+     */
+    public function has($className)
+    {
+        return array_key_exists($className, $this->classDetails);
+    }
+
+    /**
      * @param string $className
      *
      * @return ClassDetails

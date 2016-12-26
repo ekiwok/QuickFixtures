@@ -7,7 +7,7 @@ class Generator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function generate($class, $payload = null)
+    public function generate($context, $payload = null)
     {
         return new \stdClass();
     }

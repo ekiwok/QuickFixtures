@@ -12,4 +12,12 @@ class Bizz extends Bar
      * @var Nested
      */
     private $nested;
+
+    /**
+     * @return Nested
+     */
+    public function getNested()
+    {
+        return $this->nested;
+    }
 }

@@ -26,6 +26,8 @@ class ClassDetailsRegistrySpec extends ObjectBehavior
 
     function it_should_throw_runtime_exception_when_getting_unregistered_class_details()
     {
+        $this->has(Foo::class)->shouldBe(false);
+
         $this->shouldThrow(\RuntimeException::class)
             ->duringGet(Foo::class);
     }
@@ -39,6 +41,8 @@ class ClassDetailsRegistrySpec extends ObjectBehavior
 
         $this->register($firstFoo);
         $this->register($secondFoo);
+
+        $this->has(Foo::class);
 
         $this->get(Foo::class)->shouldBe($secondFoo);
     }

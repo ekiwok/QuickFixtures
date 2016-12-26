@@ -8,4 +8,12 @@ trait CreatedAtTrait
      * @var \DateTime
      */
     private $createdAt;
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
 }
