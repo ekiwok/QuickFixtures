@@ -15,7 +15,7 @@ class TypedArraysProcessor implements PrioritisedProcessorInterface
      */
     public function getPriority()
     {
-        return 255;
+        return self::BUILT_IN_PROCESSORS_PRIORITIES[self::class];
     }
 
     /**
@@ -40,6 +40,7 @@ class TypedArraysProcessor implements PrioritisedProcessorInterface
                 return $result;
             } catch (UnsupportedContextException $e) {
                 // try again
+                // @todo add stacking unsupported exceptions (previous) for better debugging
             }
         }
 

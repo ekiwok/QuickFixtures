@@ -15,7 +15,7 @@ class ScalarProcessor implements PrioritisedProcessorInterface
      */
     public function getPriority()
     {
-        return -5;
+        return self::BUILT_IN_PROCESSORS_PRIORITIES[self::class];
     }
 
     /**

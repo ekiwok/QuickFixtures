@@ -13,7 +13,7 @@ abstract class AbstractPathProcessor implements PrioritisedProcessorInterface
      */
     public function getPriority()
     {
-        return 1024;
+        return self::BUILT_IN_PROCESSORS_PRIORITIES[self::class];
     }
 
     /**

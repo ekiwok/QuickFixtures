@@ -9,10 +9,12 @@ use Ekiwok\QuickFixtures\Generator;
 use Ekiwok\QuickFixtures\Model\ClassDetailsRegistry;
 use Ekiwok\QuickFixtures\Processor\AnyClassProcessor;
 use Ekiwok\QuickFixtures\Processor\ScalarProcessor;
+use Ekiwok\QuickFixtures\Processor\SinglePropertyClassProcessor;
 use Ekiwok\QuickFixtures\Processor\TypedArraysProcessor;
 use Ekiwok\QuickFixtures\Provider\ClassDetailsProvider;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use spec\Ekiwok\QuickFixtures\fixtures\classes\Bar;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Baz\Nested;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\Bizz;
 use spec\Ekiwok\QuickFixtures\fixtures\classes\ExampleWithCollections;
@@ -34,11 +36,17 @@ class GeneratorSpec extends ObjectBehavior
         $this->addProcessor(new ScalarProcessor());
         $this->addProcessor(new AnyClassProcessor($classDetailsProvider));
         $this->addProcessor(new TypedArraysProcessor());
+        $this->addProcessor(new SinglePropertyClassProcessor($classDetailsProvider));
     }
 
     function it_is_initializable()
     {
         $this->shouldHaveType(Generator::class);
+    }
+
+    function it_generates_single_property_bar_given_string_as_payload()
+    {
+        $this->generate(Bar::class, 'test')->shouldHaveType(Bar::class);
     }
 
     function it_generates_complex_class_with_traits_correctly()

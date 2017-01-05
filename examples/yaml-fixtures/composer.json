@@ -1,0 +1,19 @@
+{
+  "license": "MIT",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "": "../../src/",
+      "Ekiwok\\QuickFixtures\\Examples\\YML\\" : "src/"
+    }
+  },
+  "require-dev": {
+
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "require": {
+    "symfony/yaml": "^3.2"
+  }
+}

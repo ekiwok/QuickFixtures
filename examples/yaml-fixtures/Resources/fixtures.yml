@@ -1,0 +1,10 @@
+"John W.":
+  wallet:
+    cards:
+      -
+        credit: "45987"
+        address:
+          city: "Franklin"
+          zipCode: "94110"
+          line1: "Fog st."
+          line2: "Apt. 34"

@@ -40,7 +40,7 @@ class AnyClassProcessor implements PrioritisedProcessorInterface
      */
     public function getPriority()
     {
-        return 0;
+        return self::BUILT_IN_PROCESSORS_PRIORITIES[self::class];
     }
 
     /**
