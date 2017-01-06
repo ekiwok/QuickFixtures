@@ -44,6 +44,7 @@ class SinglePropertyClassProcessor implements PrioritisedProcessorInterface
         }
 
         $properties = $classDetails->getProperties();
+        /** @var \ReflectionProperty $property */
         $property = reset($properties)->getReflectionProperty();
         if ($property->isPrivate() || $property->isProtected()) {
             $property->setAccessible(true);
@@ -86,6 +87,7 @@ class SinglePropertyClassProcessor implements PrioritisedProcessorInterface
             }
 
             $properties = $classDetails->getProperties();
+            /** @var TypeInterface $propertyType */
             $propertyType = reset($properties)->getType();
 
             $propertyTypeHasTheSameTypeAsPayload = $propertyType->hasAnyScalar()

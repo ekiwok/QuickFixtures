@@ -23,11 +23,12 @@ class TypedArraysProcessor implements PrioritisedProcessorInterface
      */
     public function process(ContextInterface $context, $payload, GeneratorInterface $generator)
     {
-        $types = $context->getType()->getTypedArrays();
-
         if (!is_array($payload)) {
             throw UnsupportedPayloadException::create(self::class, gettype($payload));
         }
+
+        $types = $context->getType()->getTypedArrays();
+        $throwedExceptions = [];
 
         foreach ($types as $type) {
             try {
@@ -39,12 +40,11 @@ class TypedArraysProcessor implements PrioritisedProcessorInterface
 
                 return $result;
             } catch (UnsupportedContextException $e) {
-                // try again
-                // @todo add stacking unsupported exceptions (previous) for better debugging
+                $throwedExceptions[] = $e;
             }
         }
 
-        throw new UnsupportedContextException(self::class, $context->getPath());
+        throw new UnsupportedContextException(self::class, $context->getPath(), ...$throwedExceptions);
     }
 
     /**

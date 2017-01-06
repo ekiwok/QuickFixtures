@@ -8,3 +8,20 @@
           zipCode: "94110"
           line1: "Fog st."
           line2: "Apt. 34"
+      -
+        credit: "0"
+        address:
+          city: "Franklin"
+          zipCode: "94110"
+          line1: "Fog st."
+          line2: "Apt. 34"
+"Mr. T":
+  wallet:
+    cards:
+      -
+        credit: "98945"
+        address:
+          city: "Neverland"
+          zipCode: "22110"
+          line1: "Line1"
+          line2: "Line2"

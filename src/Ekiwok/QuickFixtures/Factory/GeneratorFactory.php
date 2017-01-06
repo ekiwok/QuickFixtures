@@ -7,6 +7,7 @@ use Ekiwok\QuickFixtures\Generator;
 use Ekiwok\QuickFixtures\Model\ClassDetailsRegistry;
 use Ekiwok\QuickFixtures\Processor\AnyClassProcessor;
 use Ekiwok\QuickFixtures\Processor\ScalarProcessor;
+use Ekiwok\QuickFixtures\Processor\SinglePropertyClassProcessor;
 use Ekiwok\QuickFixtures\Processor\TypedArraysProcessor;
 use Ekiwok\QuickFixtures\Provider\ClassDetailsProvider;
 
@@ -27,6 +28,7 @@ class GeneratorFactory
         $generator->addProcessor(new ScalarProcessor());
         $generator->addProcessor(new AnyClassProcessor($classDetailsProvider));
         $generator->addProcessor(new TypedArraysProcessor());
+        $generator->addProcessor(new SinglePropertyClassProcessor($classDetailsProvider));
 
         return $generator;
     }

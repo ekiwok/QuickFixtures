@@ -5,12 +5,12 @@ namespace Ekiwok\QuickFixtures\Examples\YML\Model;
 class Money
 {
     /**
-     * @var float
+     * @var string
      */
     private $money;
 
     /**
-     * @param float $money
+     * @param string $money
      */
     public function __construct($money)
     {
@@ -18,7 +18,7 @@ class Money
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getMoney()
     {
