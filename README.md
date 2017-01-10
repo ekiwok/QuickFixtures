@@ -14,7 +14,27 @@ dockblock annotations that probably already are present in your code.
 Provided generator accepts associative arrays so you may keep your
 fixtures data in file of your choice. It might be yaml, xml, csv, etc...
  
-You can write all by hand...
+Fe. prepare yaml file like this:
+ 
+ ```yml
+     "Jake Weary":
+         uuid: "123e4567-e89b-12d3-a456-426655440000"
+         name: "Jake Weary"
+         email: "jake.weary@example.com"
+         # Notice that for single property objects it's ok to skip property name
+         credit: 100
+ ```
+ 
+ And just use this data to generate fixture:
+ 
+ ```php
+     $jakeWearyData = /* fetch "Jake Weary" entry from yml */
+ 
+     $jakeWeary = $generator->generate(Customer::class, $jakeWearyData);
+ ```
+
+ 
+Instead of writing:
 
 ```php
     $jakeWeary = new Customer(
@@ -25,7 +45,7 @@ You can write all by hand...
     );
 ```
 
-one way or another:
+or:
 
 ```php
     $jakeWeary = (new Customer())
@@ -36,29 +56,9 @@ one way or another:
     ;
 ```
 
-Or you may prepare yml file:
-
-```yml
-    "Jake Weary":
-        uuid: "123e4567-e89b-12d3-a456-426655440000"
-        name: "Jake Weary"
-        email: "jake.weary@example.com"
-        # Notice that for single property objects it's ok to skip property name
-        credit: 100
-```
-
-And generate what you need:
-
-```php
-    $jakeWearyData = /* fetch "Jake Weary" entry from yml */
-
-    $jakeWeary = $generator->generate(Customer::class, $jakeWearyData);
-```
-
 ## Extending
 
-It's OK to add your own processor for example to convert \DateTime from
-what you prefer.
+It's easily extendable by adding your own processors.
 
 ```php
     $generator->addProcessor(new class implements \Ekiwok\QuickFixtures\Processor\PrioritisedProcessorInterface{
@@ -89,3 +89,7 @@ what you prefer.
 Processor with this priority will be run before built in processors
 and will set all properties these are marked as `@var \DateTime`.
  
+## Documentation
+
+- [Getting Started](/doc/Getting_Started.md)
+- [Processors](/doc/Processors.md)
