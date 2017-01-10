@@ -1,5 +1,6 @@
 {
   "name": "ekiwok/quick-fixtures",
+  "description": "Generate complex fixtures based on @var annotations.",
   "license": "MIT",
   "type": "library",
   "autoload": {
@@ -7,6 +8,9 @@
       "": "src/",
       "spec\\" : "spec/"
     }
+  },
+  "require" : {
+    "php" : "^5.6"
   },
   "require-dev": {
     "phpspec/phpspec": "^3.0"
