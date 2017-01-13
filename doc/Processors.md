@@ -1,4 +1,4 @@
-# Getting Started
+# Processors
 
 Default Generator processes data using processors.
 
