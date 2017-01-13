@@ -83,8 +83,8 @@ $generator->generate(Order::class, [
     'customerId' => '123e4567-e89b-12d3-a456-426655440000',
     'totalAmount' => 134000,
     'products' => [
-        ['name' => 'product1, 'price' => 100000],
-        ['name' => 'product2, 'price' => 34000],
+        ['name' => 'product1', 'price' => 100000],
+        ['name' => 'product2', 'price' => 34000],
     ]
 ])
 
@@ -120,8 +120,8 @@ $generator->generate(Order::class, [
     'customerId' => '123e4567-e89b-12d3-a456-426655440000',
     'totalAmount' => 134000,
     'products' => [
-        ['name' => 'product1, 'price' => 100000],
-        ['name' => 'product2, 'price' => 34000],
+        ['name' => 'product1', 'price' => 100000],
+        ['name' => 'product2', 'price' => 34000],
     ]
 ])
 ```
