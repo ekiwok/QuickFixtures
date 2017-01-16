@@ -56,6 +56,10 @@ or:
     ;
 ```
 
+## Installation
+
+Install with composer: `composer require ekiwok/quick-fixtures`
+
 ## Extending
 
 It's easily extendable by adding your own processors.
