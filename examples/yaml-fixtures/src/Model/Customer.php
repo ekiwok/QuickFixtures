@@ -5,23 +5,42 @@ namespace Ekiwok\QuickFixtures\Examples\YML\Model;
 class Customer
 {
     /**
-     * @var Wallet
+     * @var UUID
      */
-    private $wallet;
+    private $uuid;
 
     /**
-     * @return Wallet
+     * @var string
      */
-    public function getWallet()
-    {
-        return $this->wallet;
-    }
+    private $name;
 
     /**
-     * @param Wallet $wallet
+     * @var \DateTime
      */
-    public function setWallet(Wallet $wallet)
-    {
-        $this->wallet = $wallet;
-    }
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    /**
+     * @var string
+     */
+    private $password;
+
+    /**
+     * @var string
+     */
+    private $email;
+
+    /**
+     * @var Address
+     */
+    private $address;
+
+    /**
+     * @var Credit[]
+     */
+    private $credits;
 }

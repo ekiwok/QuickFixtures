@@ -7,13 +7,11 @@
       "Ekiwok\\QuickFixtures\\Examples\\YML\\" : "src/"
     }
   },
-  "require-dev": {
-
+  "require": {
+    "php": ">=7.0",
+    "symfony/yaml": "^3.2"
   },
   "config": {
     "bin-dir": "bin"
-  },
-  "require": {
-    "symfony/yaml": "^3.2"
   }
 }

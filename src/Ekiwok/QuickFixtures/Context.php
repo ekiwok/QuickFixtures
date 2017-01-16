@@ -20,6 +20,7 @@ class Context implements ContextInterface
 
     /**
      * @param TypeInterface $type
+     * @param null|PathInterface $path
      */
     public function __construct(TypeInterface $type, PathInterface $path = null)
     {

@@ -13,6 +13,9 @@ use Ekiwok\QuickFixtures\Provider\ClassDetailsProvider;
 
 class GeneratorFactory
 {
+    /**
+     * @return Generator
+     */
     public function create()
     {
         $generator = new Generator();

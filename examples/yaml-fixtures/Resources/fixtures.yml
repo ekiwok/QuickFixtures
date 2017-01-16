@@ -1,27 +1,21 @@
-"John W.":
-  wallet:
-    cards:
-      -
-        credit: "45987"
-        address:
-          city: "Franklin"
-          zipCode: "94110"
-          line1: "Fog st."
-          line2: "Apt. 34"
-      -
-        credit: "0"
-        address:
-          city: "Franklin"
-          zipCode: "94110"
-          line1: "Fog st."
-          line2: "Apt. 34"
-"Mr. T":
-  wallet:
-    cards:
-      -
-        credit: "98945"
-        address:
-          city: "Neverland"
-          zipCode: "22110"
-          line1: "Line1"
-          line2: "Line2"
+-
+  uuid: "f34e54d4-a26f-4f9b-bdde-df3a8f69c8a7"
+  name: "Jake Weary"
+  createdAt: "2016-02-29 13:14:15"
+  updatedAt: "2016-11-01 15:16:17"
+  password: "test"
+  email: "jake.weary@example.com"
+  address:
+    line1: "LSE"
+    line2: "Houghton Street"
+    city: "London"
+    postCode: "WC2A 2AE"
+  credits:
+    -
+      uuid: "c6c184ef-cf64-40b7-bbac-f4e1ad4e7890"
+      createdAt: "2016-03-01 12:17:03"
+      ammount: 1456.78
+    -
+      uuid: "fd5ecc0b-ec56-4468-99b3-bace3bc7b9f9"
+      createdAt: "2016-11-01 17:09:57"
+      ammount: 8765.41

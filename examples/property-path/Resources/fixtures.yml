@@ -1,7 +1,0 @@
-order1:
-  createdAt: "01-01-1991"
-  customer:
-    uuid: "123e4567-e89b-12d3-a456-426655440000"
-    firstName: "Jake"
-    lastName: "Weary"
-    joinedAt: "28-12-1990"

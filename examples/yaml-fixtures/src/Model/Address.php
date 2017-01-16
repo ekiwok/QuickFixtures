@@ -1,14 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ekiwok\QuickFixtures\Examples\YML\Model;
 
 class Address
 {
-    /**
-     * @var string
-     */
-    private $city;
-
     /**
      * @var string
      */
@@ -22,69 +19,38 @@ class Address
     /**
      * @var string
      */
-    private $zipCode;
+    private $city;
 
     /**
-     * @return string
+     * @var string
      */
-    public function getCity()
-    {
-        return $this->city;
-    }
+    private $postCode;
 
-    /**
-     * @param string $city
-     */
-    public function setCity($city)
+    public function __construct(string $line1, string $line2, string $city, string $postCode)
     {
+        $this->line1 = $line1;
+        $this->line2 = $line2;
         $this->city = $city;
+        $this->postCode = $postCode;
     }
 
-    /**
-     * @return string
-     */
-    public function getLine1()
+    public function getLine1() : string
     {
         return $this->line1;
     }
 
-    /**
-     * @param string $line1
-     */
-    public function setLine1($line1)
-    {
-        $this->line1 = $line1;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLine2()
+    public function getLine2() : string
     {
         return $this->line2;
     }
 
-    /**
-     * @param string $line2
-     */
-    public function setLine2($line2)
+    public function getCity() : string
     {
-        $this->line2 = $line2;
+        return $this->city;
     }
 
-    /**
-     * @return string
-     */
-    public function getZipCode()
+    public function getPostCode() : string
     {
-        return $this->zipCode;
-    }
-
-    /**
-     * @param string $zipCode
-     */
-    public function setZipCode($zipCode)
-    {
-        $this->zipCode = $zipCode;
+        return $this->postCode;
     }
 }

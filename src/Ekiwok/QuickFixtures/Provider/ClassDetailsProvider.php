@@ -19,6 +19,7 @@ class ClassDetailsProvider
 
     /**
      * @param ClassDetailsFactory $factory
+     * @param ClassDetailsRegistry $classDetailsRegistry
      */
     public function __construct(ClassDetailsFactory $factory, ClassDetailsRegistry $classDetailsRegistry)
     {
