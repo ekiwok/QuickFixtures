@@ -1,4 +1,4 @@
-# QuickFixtures ![Status](https://api.travis-ci.org/ekiwok/QuickFixtures.svg?branch=master)
+# QuickFixtures [![Build Status](https://travis-ci.org/ekiwok/QuickFixtures.svg?branch=master)](https://travis-ci.org/ekiwok/QuickFixtures)
 
 - Did you ever add unnecessary setter because you didn't want to use
 reflections in fixtures?
